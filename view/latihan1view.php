@@ -15,7 +15,6 @@
             <th>ALAMAT</th>
             <th>NO. TELP</th>
         </tr>
-
         <?php
         $i = 1;
         foreach ($datamhs as $mhs) {
@@ -30,7 +29,8 @@
         <?php
         }
         ?>
-
     </table>
+    Admin, <?= htmlspecialchars($nama_user) ?>
 </body>
+
 </html>
