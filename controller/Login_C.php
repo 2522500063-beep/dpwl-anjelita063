@@ -12,8 +12,11 @@ class Login_C extends Controller
         $password = $this->load->post('pass');
         $cekdata = $this->load->model('Login_M');
         $datauser = $cekdata->ambildata($email);
-        if ($datauser && password_verify($password, $datauser['password'])) {
+        #if ($datauser && password_verify($password, $datauser['password'])) {
+            if ($datauser && $password === $datauser['password']) {
             $this->session->set_userdata('emailuser', $email);
+            $this->session->set_flashdata('pesan', 'Login berhasil sebagai ' . $this->session->userdata('emailuser'));
+            redirect('Admin_C/index');
             echo '<script>alert("Login berhasil sebagai ' . $this->session->userdata('emailuser') . '");</script>';
         } else {
             $this->session->set_flashdata('pesan', 'Gagal: Silahkan cek email, password, atau status akun Anda...');
