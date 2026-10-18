@@ -12,8 +12,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>AdminLTE 3 | Starter</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="/dpwl-anjelita063/AdminLTE-3.0.2/plugins/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="/dpwl-anjelita063/AdminLTE-3.0.2/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href=" <?= base_url(' AdminLTE-3.0.2/plugins/fontawesome-free/css/all.min.css ')?> "
+  <link rel="stylesheet" href=" <?= base_url(' AdminLTE-3.0.2/dist/css/adminlte.min.css ')?> "
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
