@@ -13,8 +13,8 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src=" <?= base_url('AdminLTE-3.0.2/plugins/jquery/jquery.min.js ')?> "
-<script src=" <?= base_url('AdminLTE-3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js ')?> "
-<script src=" <?= base_url('AdminLTE-3.0.2/dist/js/adminlte.min.js ')?> "
+<script src="<?= base_url('AdminLTE-3.0.2/plugins/jquery/jquery.min.js ')?>"></script>
+<script src="<?= base_url('AdminLTE-3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js ')?>"></script>
+<script src="<?= base_url('AdminLTE-3.0.2/dist/js/adminlte.min.js ')?>"></script>
 </body>
 </html>
