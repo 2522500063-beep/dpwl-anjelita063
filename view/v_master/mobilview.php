@@ -54,12 +54,39 @@
                 <td><?= $m['nbagasi'] ?></td>
                 <td><?= $m['jns_mobil'] . '<br>' . $m['transmisi'] ?></td>
                 <td><?= $m['thn_buat'] ?></td>
-                <td><?= $m['ft_depan'] . '<br>' . $m['ft_blkg'] . '<br>' . $m['ft_interior'] ?></td>
+                <td>
+    <?php
+    $foto = [
+        $m['ft_depan'] ?? '',
+        $m['ft_blkg'] ?? '',
+        $m['ft_interior'] ?? ''
+    ];
+
+    foreach ($foto as $namaFoto) {
+        if (!empty($namaFoto)) {
+            $lokasi = dirname(__DIR__, 2) . '/img/' . $namaFoto;
+
+            if (file_exists($lokasi)) {
+                ?>
+                <img src="<?= base_url('img/' . rawurlencode($namaFoto)) ?>"
+                     width="100"
+                     height="65"
+                     style="object-fit: cover; border-radius: 5px; margin-bottom: 5px; display: block;">
+                <?php
+            }
+        }
+    }
+    ?>
+</td>
                 <td><?= $m['hrg_hari'] ?></td>
                 <td><?= $m['cttn_unit'] ?></td>
                 <td><?= $m['status_unit'] ?></td>
                 <td>
-                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="<?= base_url('Mobil_C/edit_mobil/' . urlencode($m['no_plat'])) ?>"
+                      class="btn btn-warning btn-sm">
+                      <i class="fas fa-edit"></i> Edit
+                    </a>
+
                     <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                 </td>
             </tr>
