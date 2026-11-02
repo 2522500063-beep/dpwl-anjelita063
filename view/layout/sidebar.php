@@ -66,11 +66,11 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Data Penyewa</p>
-                            </a>
-                        </li>
+    <a href="<?= base_url('Penyewa_C063/index') ?>" class="nav-link">
+        <i class="far fa-circle nav-icon"></i>
+        <p>Data Penyewa</p>
+    </a>
+</li>
                     </ul>
                 </li>
                 <!-- Starter Pages -->
@@ -135,13 +135,14 @@
 
                 <!-- Simple Link / Logout -->
                 <li class="nav-item">
-                    <a href="<?= base_url('login_C/logout') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Logout
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
+                   <li class="nav-item">
+    <a href="<?= base_url('mobil_C/keluar') ?>" class="nav-link">
+        <i class="nav-icon fas fa-th"></i>
+        <p>
+            Logout
+        </p>
+    </a>
+</li>
                 </li>
 
 

@@ -160,4 +160,43 @@ class Mobil_C extends Controller
             </script>";
         }
     }
+
+    public function hapus($no_plat)
+{
+    $mobil = $this->load->model('m_master/Mobil_M');
+    $ft = ['gambar_Mobil' => $mobil->ambildata($no_plat)];
+
+    $ft_depan = $ft['gambar_Mobil']['ft_depan'];
+    $ft_blkg = $ft['gambar_Mobil']['ft_blkg'];
+    $ft_interior = $ft['gambar_Mobil']['ft_interior'];
+
+    $hapus = $mobil->HapusDTMobil($no_plat);
+
+    if ($hapus) {
+        $folder = dirname(__DIR__, 2) . '/img/';
+        $gambar = [$ft_depan, $ft_blkg, $ft_interior];
+
+        foreach ($gambar as $file) {
+            if (!empty($file) && file_exists($folder . $file)) {
+                unlink($folder . $file);
+            }
+        }
+
+        echo "<script>alert('Data mobil berhasil dihapus');
+        window.location.href = '" . base_url('Mobil_C/index') . "';
+        </script>";
+    } else {
+        echo "<script>alert('Data mobil gagal dihapus');
+        window.history.back();
+        </script>";
+    }
+}
+
+public function keluar()
+{
+    $this->session->unset_userdata('emailuser');
+    $this->session->set_flashdata('pesan', 'Berhasil Logout');
+    redirect('login_C/index');
+    exit;
+}
 }

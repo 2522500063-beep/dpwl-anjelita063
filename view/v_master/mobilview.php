@@ -55,28 +55,27 @@
                 <td><?= $m['jns_mobil'] . '<br>' . $m['transmisi'] ?></td>
                 <td><?= $m['thn_buat'] ?></td>
                 <td>
-    <?php
-    $foto = [
-        $m['ft_depan'] ?? '',
-        $m['ft_blkg'] ?? '',
-        $m['ft_interior'] ?? ''
-    ];
+    <a href="<?= base_url('img/' . $m['ft_depan']) ?>" target="_blank">
+        <img src="<?= base_url('img/' . $m['ft_depan']) ?>"
+             width="100"
+             style="border-radius: 5px;">
+    </a>
 
-    foreach ($foto as $namaFoto) {
-        if (!empty($namaFoto)) {
-            $lokasi = dirname(__DIR__, 2) . '/img/' . $namaFoto;
+    <br>
 
-            if (file_exists($lokasi)) {
-                ?>
-                <img src="<?= base_url('img/' . rawurlencode($namaFoto)) ?>"
-                     width="100"
-                     height="65"
-                     style="object-fit: cover; border-radius: 5px; margin-bottom: 5px; display: block;">
-                <?php
-            }
-        }
-    }
-    ?>
+    <a href="<?= base_url('img/' . $m['ft_blkg']) ?>" target="_blank">
+        <img src="<?= base_url('img/' . $m['ft_blkg']) ?>"
+             width="100"
+             style="border-radius: 5px;">
+    </a>
+
+    <br>
+
+    <a href="<?= base_url('img/' . $m['ft_interior']) ?>" target="_blank">
+        <img src="<?= base_url('img/' . $m['ft_interior']) ?>"
+             width="100"
+             style="border-radius: 5px;">
+    </a>
 </td>
                 <td><?= $m['hrg_hari'] ?></td>
                 <td><?= $m['cttn_unit'] ?></td>
@@ -87,7 +86,11 @@
                       <i class="fas fa-edit"></i> Edit
                     </a>
 
-                    <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                  <a href="<?= base_url('Mobil_C/hapus/' . $m['no_plat']) ?>"
+                    class="btn btn-danger btn-sm"
+                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                    Hapus
+                  </a>
                 </td>
             </tr>
         <?php } ?>

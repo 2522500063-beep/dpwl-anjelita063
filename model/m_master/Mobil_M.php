@@ -84,5 +84,15 @@ class Mobil_M extends Model
 
     return $hasil;
 }
+
+public function HapusDTMobil($no_plat)
+{
+    $dtmobil = $this->db->prepare("DELETE FROM mobil WHERE no_plat = ?");
+    $dtmobil->bind_param("s", $no_plat);
+    $hasil = $dtmobil->execute();
+    $dtmobil->close();
+
+    return $hasil;
+}
     
 }
