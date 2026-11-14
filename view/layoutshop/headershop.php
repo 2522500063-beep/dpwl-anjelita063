@@ -26,6 +26,11 @@
 </head>
 
 <body>
+    <?php 
+    if (! empty($psn)) {
+        echo "<script>alert('" . $psn . "');</script>";
+    }
+    ?>
     <!-- Topbar Start -->
     <div class="container-fluid">
         <div class="row bg-secondary py-2 px-xl-5">
@@ -87,7 +92,17 @@
                 </a>
             </div>
            <div class="col-lg-12 text-right">
-                <a href="" class="btn btn-info">Login</a>
+               
+
+                <?php if (!empty($EmPlg)) {
+                    echo '<i>Selamat Datang, ' . $NmPlg . '</i>' ?>
+                    <a href="<?= base_url('Login_C/keluar') ?>" class="btn btn-info">Logout</a>
+                <?php } else { ?>
+                    <i>Noname</i> <a href="<?= base_url('Login_C/penyewa') ?>" class="btn btn-info">Login</a>
+                <?php
+                }
+                ?>
+
            </div>
         </div>
     </div>
