@@ -8,10 +8,24 @@ class Shopping extends Controller
         $dt['EmPlg'] = $this->session->userdata('EmailPlg');
         $dt['NmPlg'] = $this->session->userdata('NmPlg');
         $dt['psn'] = $this->session->set_flashdata('pesan');
+        $cekdata = $this->load->model('m_shop/sewa_m'); //Cari data keranjang
+        $dt['dtkeranjang'] = $cekdata->DataKeranjang($this->session->userdata('EmailPlg'));
         $this->load->view('layoutshop/headershop',$dt);
         $this->load->view('layoutshop/menushop');
         $this->load->view('layoutshop/slidershop', $dt);
         $this->load->view('layoutshop/contentshop', $dt);
         $this->load->view('layoutshop/footershop');
     }
+
+    public function detail($no_plat)
+{
+    $cekdata = $this->load->model('m_master/Mobil_M');
+    $dt['mobil'] = $cekdata->detailmobil($no_plat);
+    $dt['EmPlg'] = $this->session->userdata('EmailPlg');
+    $dt['NmPlg'] = $this->session->userdata('NmPlg');
+    $this->load->view('layoutshop/headershop', $dt);
+    $this->load->view('layoutshop/menushop');
+    $this->load->view('v_master_shop/detail_mobil_view', $dt);
+    $this->load->view('layoutshop/footershop');
+}
 }

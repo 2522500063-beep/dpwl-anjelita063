@@ -5,12 +5,12 @@ class Penyewa_M063 extends Model
     {
         $dtpenyewa = $this->db->prepare("
             SELECT
-                user_plg AS user_dlg063,
-                sandi AS Sandi063,
-                nik AS Nik063,
-                nm_lngkp AS nm_lngkp063,
-                no_hp AS no_hp063,
-                almt_lngkp AS almt_lngkp063,
+                user_plg063 AS user_dlg063,
+                sandi063 AS Sandi063,
+                nik063 AS Nik063,
+                nm_lngkp063 AS nm_lngkp063,
+                no_hp063 AS no_hp063,
+                almt_lngkp063 AS almt_lngkp063,
                 ft_ktp,
                 ft_sim_a
             FROM penyewa
@@ -25,8 +25,8 @@ class Penyewa_M063 extends Model
     {
         $sql = $this->db->prepare("
             INSERT INTO penyewa
-            (user_plg, sandi, nik, nm_lngkp,
-            no_hp, almt_lngkp, ft_ktp, ft_sim_a)
+            (user_plg063, sandi063, nik063, nm_lngkp063,
+            no_hp063, almt_lngkp063, ft_ktp, ft_sim_a)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
 
@@ -52,16 +52,16 @@ class Penyewa_M063 extends Model
     {
         $sql = $this->db->prepare("
             SELECT
-                user_plg AS user_dlg063,
-                sandi AS Sandi063,
-                nik AS Nik063,
-                nm_lngkp AS nm_lngkp063,
-                no_hp AS no_hp063,
-                almt_lngkp AS almt_lngkp063,
+                user_plg063 AS user_dlg063,
+                sandi063 AS Sandi063,
+                nik063 AS Nik063,
+                nm_lngkp063 AS nm_lngkp063,
+                no_hp063 AS no_hp063,
+                almt_lngkp063 AS almt_lngkp063,
                 ft_ktp,
                 ft_sim_a
             FROM penyewa
-            WHERE nik = ?
+            WHERE nik063 = ?
         ");
 
         $sql->bind_param("s", $nik);
@@ -77,14 +77,14 @@ class Penyewa_M063 extends Model
     {
         $sql = $this->db->prepare("
             UPDATE penyewa SET
-                user_plg = ?,
-                sandi = ?,
-                nm_lngkp = ?,
-                no_hp = ?,
-                almt_lngkp = ?,
+                user_plg063 = ?,
+                sandi063 = ?,
+                nm_lngkp063 = ?,
+                no_hp063 = ?,
+                almt_lngkp063 = ?,
                 ft_ktp = ?,
                 ft_sim_a = ?
-            WHERE nik = ?
+            WHERE nik063 = ?
         ");
 
         $sql->bind_param(
@@ -108,7 +108,7 @@ class Penyewa_M063 extends Model
     public function HapusDTPenyewa($nik)
     {
         $sql = $this->db->prepare("
-            DELETE FROM penyewa WHERE nik = ?
+            DELETE FROM penyewa WHERE nik063 = ?
         ");
 
         $sql->bind_param("s", $nik);

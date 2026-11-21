@@ -94,5 +94,14 @@ public function HapusDTMobil($no_plat)
 
     return $hasil;
 }
+
+public function detailmobil($no_plat)
+{
+    $sql = $this->db->prepare("SELECT * FROM mobil WHERE no_plat = ?");
+    $sql->bind_param("s", $no_plat);
+    $sql->execute();
+
+    return $sql->get_result()->fetch_assoc();
+}
     
 }
